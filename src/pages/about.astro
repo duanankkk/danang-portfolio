@@ -14,9 +14,9 @@ const experience = [
     org: 'PT Kilang Pertamina Internasional, Refinery Unit IV — Cilacap, Indonesia',
     period: 'Apr 2025 – May 2025',
     points: [
-      'Completed a 2-month internship in the Process Engineering Section at one of Indonesia’s largest oil refineries.',
-      'Evaluated centrifugal pump 31P1 performance for avtur loading operations, benchmarking actual conditions against design specifications.',
-      'Analyzed suction pressure, pump efficiency, and NPSHA to assess cavitation risk and identify performance degradation.',
+      'Spent two months inside the Process Engineering section of one of Indonesia’s largest refineries.',
+      'Investigated why pump 31P1 wasn’t performing to spec on avtur loading — comparing live operating data against the original design numbers.',
+      'Traced the gap to suction pressure and NPSHA, flagging early cavitation risk before it turned into downtime.',
     ],
   },
   {
@@ -24,9 +24,9 @@ const experience = [
     org: 'Universitas Gadjah Mada — Yogyakarta, Indonesia',
     period: 'Apr 2024 – Feb 2025',
     points: [
-      'Carried out research on eco-friendly surfactant alternatives for Enhanced Oil Recovery (EOR) applications.',
-      'Tested over 100 samples across a range of operating conditions and surfactant concentrations.',
-      'Assessed Methyl Ester Sulphonate performance through filtration testing and presented findings at a departmental seminar.',
+      'Explored whether a more eco-friendly surfactant could still hold up under real Enhanced Oil Recovery conditions.',
+      'Ran filtration tests across 100+ samples, varying concentration and operating conditions to map where Methyl Ester Sulphonate held its ground.',
+      'Packaged the findings into a report and presented them at a departmental seminar.',
     ],
   },
 ];
@@ -36,25 +36,25 @@ const leadership = [
     role: 'Event Manager, Catalyst Competition',
     org: 'POISE UGM x Catalyst',
     period: '2022',
-    detail: 'Led a team of ~8 staff through planning and execution of one of POISE UGM’s flagship events.',
+    detail: 'Ran POISE UGM’s flagship competition end to end — an 8-person crew, one winner declared at the finish.',
   },
   {
     role: 'Workshop Project Lead / Department Representative',
     org: 'Teknik Fair',
     period: '2022',
-    detail: 'Led a 6-person team introducing prospective students to Chemical Engineering at UGM.',
+    detail: 'Gave prospective students a real look at studying Chemical Engineering, with a 6-person team behind the scenes.',
   },
   {
     role: 'Project Officer, OTK 2022',
     org: 'KMTK FT UGM',
     period: '2022',
-    detail: 'Led a national-scale event for high school students; achieved an 8.5/10 participant feedback score.',
+    detail: 'Helped run a national event introducing high schoolers to Chemical Engineering — closed it out with an 8.5/10 feedback score.',
   },
   {
     role: 'Staff, HOPIN',
     org: 'KMTK UGM',
     period: 'Feb 2022 – Feb 2023',
-    detail: 'Liaison Officer & MC for departmental events; recognized as Best Staff of HOPIN 2022–2023.',
+    detail: 'Kept departmental events on track as Liaison Officer and MC — named Best Staff for the 2022–2023 term.',
   },
 ];
 
@@ -62,7 +62,7 @@ const stats = [
   { value: '8', label: 'Team Members Led' },
   { value: '100+', label: 'EOR Samples Tested' },
   { value: '583', label: 'TOEFL ITP Score' },
-  { value: '6', label: 'Leadership Roles' },
+  { value: '4', label: 'Leadership Roles' },
 ];
 
 const skills = {
@@ -86,15 +86,16 @@ const skills = {
     <div class="container about-body">
       <div class="about-body__text">
         <p class="lede">
-          Fresh graduate in Chemical Engineering from Universitas Gadjah Mada with hands-on
-          process engineering internship experience at PT Kilang Pertamina Internasional Refinery
-          Unit IV Cilacap, plus applied research experience in surfactant-based Enhanced Oil
-          Recovery (EOR).
+          I studied Chemical Engineering at Universitas Gadjah Mada because I wanted to
+          understand how things actually move &mdash; fluids through pipes, heat through
+          exchangers, oil through rock. That curiosity took me from a refinery floor in Cilacap
+          to a lab bench testing surfactants for Enhanced Oil Recovery.
         </p>
         <p style="margin-top: 1.5rem; max-width: 60ch;">
-          I've demonstrated leadership through managing student-led projects and teams of up to 8
-          members, and I'm proficient in English (TOEFL ITP 583) with intermediate Mandarin
-          (HSK 3 coursework completed).
+          Somewhere along the way I also started running things &mdash; events, workshops, teams
+          of students who needed a plan and someone to keep it on track. Turns out managing eight
+          people toward a deadline isn't that different from managing a process: you still need
+          clear inputs, checkpoints, and a way to catch things before they go sideways.
         </p>
       </div>
       <dl class="fact-list">
@@ -172,7 +173,8 @@ const skills = {
   <section class="section section--border-top">
     <div class="container">
       <span class="eyebrow">Skills</span>
-      <h2 style="margin-bottom: 2.5rem;">Skills<span class="text-red">.</span></h2>
+      <h2 style="margin-bottom: 1rem;">Skills<span class="text-red">.</span></h2>
+      <p class="lede" style="margin-bottom: 2.5rem; font-size: 1.0625rem;">What I actually reach for, day to day.</p>
       <div class="skills-grid">
         {
           Object.entries(skills).map(([category, items]) => (
