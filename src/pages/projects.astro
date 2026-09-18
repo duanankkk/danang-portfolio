@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'Project One',
+    year: '2026',
+    tags: ['Placeholder', 'Tag'],
+    blurb:
+      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
+  },
+  {
+    name: 'Project Two',
+    year: '2025',
+    tags: ['Placeholder', 'Tag'],
+    blurb:
+      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
+  },
+  {
+    name: 'Project Three',
+    year: '2025',
+    tags: ['Placeholder', 'Tag'],
+    blurb:
+      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
+  },
+  {
+    name: 'Project Four',
+    year: '2024',
+    tags: ['Placeholder', 'Tag'],
+    blurb:
+      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
+  },
+];
+---
+
+<Layout title="Projects" current="projects">
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Selected work</span>
+      <h1>Projects<span class="text-red">.</span></h1>
+      <p class="lede" style="margin-top: 1.75rem;">
+        Placeholder intro. A short list of things built, shipped, or written — replace with real
+        project write-ups.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--border-top project-list">
+    <div class="container">
+      {
+        projects.map((project) => (
+          <article class="project-row">
+            <div class="project-row__meta">
+              <span class="project-row__year">{project.year}</span>
+              <ul class="project-row__tags">
+                {project.tags.map((tag) => (
+                  <li>{tag}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="project-row__body">
+              <h2>{project.name}</h2>
+              <p>{project.blurb}</p>
+              <a class="project-row__link" href="#">
+                View project &rarr;
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .project-list .container {
+    border-top: 1px solid var(--color-black);
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 1fr 2.2fr;
+    gap: 2rem;
+    padding-block: 2.5rem;
+    border-bottom: 1px solid var(--color-black);
+  }
+
+  .project-row__year {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+
+  .project-row__tags {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .project-row__tags li {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-red);
+    border: 1px solid var(--color-red);
+    padding: 0.2rem 0.6rem;
+  }
+
+  .project-row__body h2 {
+    text-transform: none;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-row__body p {
+    max-width: 60ch;
+    color: #333;
+  }
+
+  .project-row__link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--color-black);
+    border-bottom: 2px solid var(--color-red);
+  }
+
+  @media (max-width: 720px) {
+    .project-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

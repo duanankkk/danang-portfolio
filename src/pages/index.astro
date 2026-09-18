@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  { name: 'Project One', blurb: 'One-line placeholder description of this project.' },
+  { name: 'Project Two', blurb: 'One-line placeholder description of this project.' },
+  { name: 'Project Three', blurb: 'One-line placeholder description of this project.' },
+];
+---
+
+<Layout title="Home" current="home">
+  <section class="section hero">
+    <div class="container">
+      <span class="eyebrow">Placeholder tagline goes here</span>
+      <h1>Danang<br />Haryanto<span class="text-red">.</span></h1>
+      <p class="lede" style="margin-top: 1.75rem;">
+        Placeholder intro copy. A short, bold sentence about who you are and what you do goes
+        here — replace with your real positioning.
+      </p>
+      <div class="hero__actions">
+        <a class="btn" href="/about">About Me</a>
+        <a class="btn btn--outline" href="/projects">View Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border-top">
+    <div class="container">
+      <span class="eyebrow">Selected work</span>
+      <h2 style="margin-bottom: 3rem;">Recent Projects</h2>
+      <ul class="project-grid">
+        {
+          projects.map((project) => (
+            <li class="project-card">
+              <h3>{project.name}</h3>
+              <p>{project.blurb}</p>
+              <a class="project-card__link" href="/projects">
+                View project &rarr;
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding-top: clamp(3rem, 8vw, 6rem);
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .project-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-black);
+    border: 1px solid var(--color-black);
+  }
+
+  .project-card {
+    background: var(--color-white);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-card h3 {
+    text-transform: none;
+  }
+
+  .project-card p {
+    color: #444;
+    flex-grow: 1;
+  }
+
+  .project-card__link {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--color-red);
+  }
+
+  @media (max-width: 860px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

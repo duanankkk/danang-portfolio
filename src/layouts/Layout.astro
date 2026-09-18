@@ -1,0 +1,43 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: 'home' | 'about' | 'projects';
+  showFooterNewsletter?: boolean;
+}
+
+const {
+  title,
+  description = 'Danang Haryanto — personal site and weekly newsletter.',
+  current = '',
+  showFooterNewsletter = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <title>{title} · Danang Haryanto</title>
+
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=switzer@400&f[]=khand@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Nav current={current} />
+    <main>
+      <slot />
+    </main>
+    <Footer showNewsletter={showFooterNewsletter} />
+  </body>
+</html>

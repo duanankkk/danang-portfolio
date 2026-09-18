@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const facts = [
+  { label: 'Based in', value: 'Placeholder City, Country' },
+  { label: 'Currently', value: 'Placeholder role / focus' },
+  { label: 'Previously', value: 'Placeholder background' },
+  { label: 'Newsletter', value: 'Weekly, placeholder topic' },
+];
+---
+
+<Layout title="About" current="about">
+  <section class="section about-hero">
+    <div class="container about-hero__grid">
+      <div>
+        <span class="eyebrow">About</span>
+        <h1>Who I<br />Am<span class="text-red">.</span></h1>
+      </div>
+      <div class="about-photo" aria-hidden="true">Photo placeholder</div>
+    </div>
+  </section>
+
+  <section class="section section--border-top">
+    <div class="container about-body">
+      <div class="about-body__text">
+        <p class="lede">
+          Placeholder bio paragraph. This is where a longer, more personal introduction goes —
+          background, what you care about, and why this site exists. Replace with real copy.
+        </p>
+        <p style="margin-top: 1.5rem; max-width: 60ch;">
+          Placeholder second paragraph. More detail on your story, work, and what you're
+          currently focused on. Keep it conversational and specific once real content is ready.
+        </p>
+      </div>
+      <dl class="fact-list">
+        {
+          facts.map((fact) => (
+            <div class="fact-list__row">
+              <dt>{fact.label}</dt>
+              <dd>{fact.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--border-top">
+    <div class="container">
+      <span class="eyebrow">Get in touch</span>
+      <h2 style="margin-bottom: 1.5rem;">Say Hello<span class="text-red">.</span></h2>
+      <a class="btn" href="mailto:hello@example.com">Email Me</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-hero__grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  .about-photo {
+    aspect-ratio: 4 / 5;
+    background: var(--color-black);
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+  }
+
+  .about-body {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+  }
+
+  .fact-list {
+    margin: 0;
+    border-top: 1px solid var(--color-black);
+  }
+
+  .fact-list__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-black);
+  }
+
+  .fact-list__row dt {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.8125rem;
+    color: var(--color-red);
+  }
+
+  .fact-list__row dd {
+    margin: 0;
+    text-align: right;
+  }
+
+  @media (max-width: 860px) {
+    .about-hero__grid,
+    .about-body {
+      grid-template-columns: 1fr;
+    }
+
+    .about-photo {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

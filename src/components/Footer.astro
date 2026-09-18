@@ -1,0 +1,24 @@
+---
+import Newsletter from './Newsletter.astro';
+
+interface Props {
+  showNewsletter?: boolean;
+}
+
+const { showNewsletter = true } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  {showNewsletter && <Newsletter />}
+  <div class="container footer-bottom">
+    <span>&copy; {year} Danang Haryanto. All rights reserved.</span>
+    <nav aria-label="Social">
+      <a href="#">Twitter / X</a>
+      &nbsp;&middot;&nbsp;
+      <a href="#">LinkedIn</a>
+      &nbsp;&middot;&nbsp;
+      <a href="#">GitHub</a>
+    </nav>
+  </div>
+</footer>
