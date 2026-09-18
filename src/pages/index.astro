@@ -21,7 +21,12 @@ const highlights = [
   <section class="section hero">
     <div class="container">
       <span class="eyebrow">Chemical Engineer &middot; Process Researcher</span>
-      <h1>Danang<br />Haryanto<span class="text-red">.</span></h1>
+      <div class="hero-name" id="hero-name">
+        <h1>Danang<br />Haryanto<span class="text-red">.</span></h1>
+        <span class="hero-name__dot" aria-hidden="true">
+          <span class="hero-name__dot-inner"></span>
+        </span>
+      </div>
       <p class="lede" style="margin-top: 1.75rem;">
         Fresh Chemical Engineering graduate from Universitas Gadjah Mada with hands-on process
         engineering experience at one of Indonesia's largest oil refineries, applied research in
@@ -37,6 +42,86 @@ const highlights = [
       </div>
     </div>
   </section>
+
+  <script>
+    const nameWrap = document.getElementById('hero-name');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (nameWrap && !prefersReducedMotion) {
+      const dot = nameWrap.querySelector('.hero-name__dot');
+      const period = nameWrap.querySelector('h1 .text-red');
+
+      if (dot && period) {
+        let restX = 0;
+        let restY = 0;
+        let targetX = 0;
+        let targetY = 0;
+        let curX = 0;
+        let curY = 0;
+        let active = false;
+        let rafId: number | null = null;
+
+        const place = (x: number, y: number) => {
+          dot.style.transform = `translate(${x}px, ${y}px)`;
+        };
+
+        const computeRest = () => {
+          const wrapRect = nameWrap.getBoundingClientRect();
+          const periodRect = period.getBoundingClientRect();
+          restX = periodRect.left + periodRect.width / 2 - wrapRect.left;
+          restY = periodRect.top + periodRect.height / 2 - wrapRect.top;
+          if (!active) {
+            targetX = restX;
+            targetY = restY;
+            curX = restX;
+            curY = restY;
+            place(curX, curY);
+          }
+        };
+
+        const loop = () => {
+          curX += (targetX - curX) * 0.15;
+          curY += (targetY - curY) * 0.15;
+          place(curX, curY);
+          rafId = requestAnimationFrame(loop);
+        };
+
+        const start = () => {
+          if (rafId === null) rafId = requestAnimationFrame(loop);
+        };
+
+        const stop = () => {
+          if (rafId !== null) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        };
+
+        nameWrap.addEventListener('mouseenter', () => {
+          active = true;
+          dot.classList.add('is-active');
+          start();
+        });
+
+        nameWrap.addEventListener('mousemove', (e) => {
+          const rect = nameWrap.getBoundingClientRect();
+          targetX = e.clientX - rect.left;
+          targetY = e.clientY - rect.top;
+        });
+
+        nameWrap.addEventListener('mouseleave', () => {
+          active = false;
+          dot.classList.remove('is-active');
+          targetX = restX;
+          targetY = restY;
+          setTimeout(stop, 600);
+        });
+
+        computeRest();
+        window.addEventListener('resize', computeRest);
+      }
+    }
+  </script>
 
   <section class="section section--border-top">
     <div class="container">
@@ -62,6 +147,39 @@ const highlights = [
 <style>
   .hero {
     padding-top: clamp(3rem, 8vw, 6rem);
+  }
+
+  .hero-name {
+    position: relative;
+  }
+
+  .hero-name__dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .hero-name__dot-inner {
+    position: absolute;
+    left: -8px;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-red);
+    box-shadow: 0 0 26px rgba(232, 0, 28, 0.5);
+    opacity: 0;
+    transform: scale(0.3);
+    transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .hero-name__dot.is-active .hero-name__dot-inner {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .hero__quote {
