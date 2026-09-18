@@ -5,30 +5,46 @@ const projects = [
   {
     name: 'Centrifugal Pump Performance Evaluation',
     year: '2025',
+    role: 'Process Engineer Intern — PT Kilang Pertamina Internasional (RU IV Cilacap)',
     tags: ['Process Engineering', 'Refinery'],
-    blurb:
-      'During a Process Engineer internship at PT Kilang Pertamina Internasional (RU IV Cilacap), evaluated centrifugal pump 31P1 performance for avtur loading operations — benchmarking actual conditions against design specs and analyzing suction pressure, efficiency, and NPSHA to flag cavitation risk.',
+    points: [
+      'Evaluated centrifugal pump 31P1 performance for avtur (aviation turbine fuel) loading operations.',
+      'Benchmarked actual operating conditions against design specifications.',
+      'Analyzed suction pressure, pump efficiency, and NPSHA to flag cavitation risk and performance degradation.',
+    ],
   },
   {
     name: 'Surfactant-Based EOR Research',
     year: '2024–2025',
+    role: 'Researcher — Universitas Gadjah Mada',
     tags: ['Research', 'Enhanced Oil Recovery'],
-    blurb:
-      'Researched eco-friendly surfactant alternatives for Enhanced Oil Recovery at Universitas Gadjah Mada. Tested over 100 samples across varying conditions and concentrations, assessing Methyl Ester Sulphonate via filtration testing and presenting findings at a departmental seminar.',
+    points: [
+      'Researched eco-friendly surfactant alternatives for Enhanced Oil Recovery (EOR) applications.',
+      'Tested over 100 samples across a range of operating conditions and surfactant concentrations.',
+      'Assessed Methyl Ester Sulphonate performance via filtration testing; presented findings at a departmental seminar.',
+    ],
   },
   {
     name: 'Catalyst Competition 2022',
     year: '2022',
+    role: 'Event Manager — POISE UGM x Catalyst',
     tags: ['Event Management', 'Leadership'],
-    blurb:
-      'Managed Catalyst, a flagship event under POISE UGM, as Event Manager — leading a team of roughly 8 staff members from planning through execution to a successfully declared winner.',
+    points: [
+      'Managed Catalyst, one of the flagship events under POISE UGM.',
+      'Led a team of roughly 8 staff members throughout planning and execution.',
+      'Delivered the event from initial organization through to a successfully declared winner.',
+    ],
   },
   {
     name: 'Teknik Fair Workshop',
     year: '2022',
+    role: 'Workshop Project Lead / Department Representative',
     tags: ['Leadership', 'Public Speaking'],
-    blurb:
-      'Led a workshop project introducing prospective students to studying Chemical Engineering, managing a 6-person team and representing the department as its delegate throughout the event.',
+    points: [
+      'Led a workshop introducing prospective students to studying Chemical Engineering.',
+      'Managed a 6-person team through planning and execution of the workshop.',
+      'Represented the Department of Chemical Engineering as its delegate throughout the event.',
+    ],
   },
 ];
 ---
@@ -60,7 +76,12 @@ const projects = [
             </div>
             <div class="project-row__body">
               <h2>{project.name}</h2>
-              <p>{project.blurb}</p>
+              <p class="project-row__role">{project.role}</p>
+              <ul class="project-row__points">
+                {project.points.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
               <a
                 class="project-row__link"
                 href="https://linkedin.com/in/danang-haryanto-b87208217"
@@ -111,23 +132,35 @@ const projects = [
     letter-spacing: 0.04em;
     color: var(--color-red);
     border: 1px solid var(--color-red);
-    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
   }
 
   .project-row__body h2 {
     text-transform: none;
     font-size: clamp(1.5rem, 3vw, 2.25rem);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.4rem;
   }
 
-  .project-row__body p {
+  .project-row__role {
+    font-size: 0.875rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
+  .project-row__points {
+    margin: 0;
+    padding-left: 1.1rem;
     max-width: 60ch;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
   }
 
   .project-row__link {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     font-family: var(--font-display);
     font-weight: 700;
     text-transform: uppercase;

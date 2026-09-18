@@ -240,6 +240,20 @@ p {
   flex-wrap: wrap;
 }
 
+.connect__email {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.connect__email a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.connect__email a:hover {
+  color: var(--color-red);
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-block: 1.5rem;
