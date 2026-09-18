@@ -7,7 +7,7 @@ Personal site built with [Astro](https://astro.build). Static, no client-side JS
 - **Astro 4** — static site generation, file-based routing
 - **Fonts** — [Switzer](https://www.fontshare.com/fonts/switzer) (body) + [Khand](https://www.fontshare.com/fonts/khand) (display/headings), loaded from Fontshare
 - **Styling** — plain CSS with custom properties (no framework), palette limited to black / white / red
-- **Newsletter** — placeholder form in `src/components/Newsletter.astro`, not yet wired to a provider
+- **Contact** — footer "Let's Connect" CTA (`src/components/Connect.astro`) links to email and LinkedIn
 
 ## Development
 
@@ -33,9 +33,6 @@ Push to GitHub and connect the repo to [Netlify](https://netlify.com) or [Vercel
 
 ## TODO before launch
 
-- Replace all placeholder copy (home, about, projects)
-- Add real project content/links in `src/pages/projects.astro` and `src/pages/index.astro`
-- Wire up `src/components/Newsletter.astro` form to an email provider (Buttondown, Mailchimp, ConvertKit, etc.)
 - Add a real photo in `src/pages/about.astro` (replace the placeholder box)
-- Update social links and email address in `src/components/Footer.astro` and `src/pages/about.astro`
 - Set the real `site` URL in `astro.config.mjs`
+- Double-check contact details (email, LinkedIn) in `src/components/Footer.astro`, `src/components/Connect.astro`, and `src/pages/about.astro`

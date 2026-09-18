@@ -2,11 +2,66 @@
 import Layout from '../layouts/Layout.astro';
 
 const facts = [
-  { label: 'Based in', value: 'Placeholder City, Country' },
-  { label: 'Currently', value: 'Placeholder role / focus' },
-  { label: 'Previously', value: 'Placeholder background' },
-  { label: 'Newsletter', value: 'Weekly, placeholder topic' },
+  { label: 'Based in', value: 'Jakarta Timur, Indonesia' },
+  { label: 'Education', value: 'B.Eng. Chemical Engineering, UGM (2021–2026)' },
+  { label: 'Languages', value: 'English (TOEFL ITP 583), Mandarin (HSK 3)' },
+  { label: 'Currently', value: 'Fresh Graduate — Process Engineering' },
 ];
+
+const experience = [
+  {
+    role: 'Process Engineer Intern',
+    org: 'PT Kilang Pertamina Internasional, Refinery Unit IV — Cilacap, Indonesia',
+    period: 'Apr 2025 – May 2025',
+    points: [
+      'Completed a 2-month internship in the Process Engineering Section at one of Indonesia’s largest oil refineries.',
+      'Evaluated centrifugal pump 31P1 performance for avtur loading operations, benchmarking actual conditions against design specifications.',
+      'Analyzed suction pressure, pump efficiency, and NPSHA to assess cavitation risk and identify performance degradation.',
+    ],
+  },
+  {
+    role: 'Researcher',
+    org: 'Universitas Gadjah Mada — Yogyakarta, Indonesia',
+    period: 'Apr 2024 – Feb 2025',
+    points: [
+      'Carried out research on eco-friendly surfactant alternatives for Enhanced Oil Recovery (EOR) applications.',
+      'Tested over 100 samples across a range of operating conditions and surfactant concentrations.',
+      'Assessed Methyl Ester Sulphonate performance through filtration testing and presented findings at a departmental seminar.',
+    ],
+  },
+];
+
+const leadership = [
+  {
+    role: 'Event Manager, Catalyst Competition',
+    org: 'POISE UGM x Catalyst',
+    period: '2022',
+    detail: 'Led a team of ~8 staff through planning and execution of one of POISE UGM’s flagship events.',
+  },
+  {
+    role: 'Workshop Project Lead / Department Representative',
+    org: 'Teknik Fair',
+    period: '2022',
+    detail: 'Led a 6-person team introducing prospective students to Chemical Engineering at UGM.',
+  },
+  {
+    role: 'Project Officer, OTK 2022',
+    org: 'KMTK FT UGM',
+    period: '2022',
+    detail: 'Led a national-scale event for high school students; achieved an 8.5/10 participant feedback score.',
+  },
+  {
+    role: 'Staff, HOPIN',
+    org: 'KMTK UGM',
+    period: 'Feb 2022 – Feb 2023',
+    detail: 'Liaison Officer & MC for departmental events; recognized as Best Staff of HOPIN 2022–2023.',
+  },
+];
+
+const skills = {
+  Technical: ['Process Engineering', 'Centrifugal Pumps', 'Enhanced Oil Recovery', 'Laboratory Skills', 'HSSE', 'Data Analysis'],
+  'Leadership & Management': ['Project Management', 'Event Management', 'Team Leadership', 'Public Speaking', 'Stakeholder Communication'],
+};
 ---
 
 <Layout title="About" current="about">
@@ -24,12 +79,15 @@ const facts = [
     <div class="container about-body">
       <div class="about-body__text">
         <p class="lede">
-          Placeholder bio paragraph. This is where a longer, more personal introduction goes —
-          background, what you care about, and why this site exists. Replace with real copy.
+          Fresh graduate in Chemical Engineering from Universitas Gadjah Mada with hands-on
+          process engineering internship experience at PT Kilang Pertamina Internasional Refinery
+          Unit IV Cilacap, plus applied research experience in surfactant-based Enhanced Oil
+          Recovery (EOR).
         </p>
         <p style="margin-top: 1.5rem; max-width: 60ch;">
-          Placeholder second paragraph. More detail on your story, work, and what you're
-          currently focused on. Keep it conversational and specific once real content is ready.
+          I've demonstrated leadership through managing student-led projects and teams of up to 8
+          members, and I'm proficient in English (TOEFL ITP 583) with intermediate Mandarin
+          (HSK 3 coursework completed).
         </p>
       </div>
       <dl class="fact-list">
@@ -47,9 +105,82 @@ const facts = [
 
   <section class="section section--border-top">
     <div class="container">
+      <span class="eyebrow">Professional experience</span>
+      <h2 style="margin-bottom: 3rem;">Experience<span class="text-red">.</span></h2>
+      <div class="timeline">
+        {
+          experience.map((job) => (
+            <article class="timeline__item">
+              <div class="timeline__meta">
+                <span class="timeline__period">{job.period}</span>
+              </div>
+              <div class="timeline__body">
+                <h3>{job.role}</h3>
+                <p class="timeline__org">{job.org}</p>
+                <ul>
+                  {job.points.map((point) => <li>{point}</li>)}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border-top">
+    <div class="container">
+      <span class="eyebrow">Leadership &amp; organizational experience</span>
+      <h2 style="margin-bottom: 3rem;">Leadership<span class="text-red">.</span></h2>
+      <div class="leadership-grid">
+        {
+          leadership.map((role) => (
+            <div class="leadership-card">
+              <span class="leadership-card__period">{role.period}</span>
+              <h3>{role.role}</h3>
+              <p class="leadership-card__org">{role.org}</p>
+              <p>{role.detail}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border-top">
+    <div class="container">
+      <span class="eyebrow">Skills</span>
+      <h2 style="margin-bottom: 2.5rem;">Skills<span class="text-red">.</span></h2>
+      <div class="skills-grid">
+        {
+          Object.entries(skills).map(([category, items]) => (
+            <div>
+              <h3 class="skills-grid__category">{category}</h3>
+              <ul class="tag-list">
+                {items.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--border-top">
+    <div class="container">
       <span class="eyebrow">Get in touch</span>
       <h2 style="margin-bottom: 1.5rem;">Say Hello<span class="text-red">.</span></h2>
-      <a class="btn" href="mailto:hello@example.com">Email Me</a>
+      <div class="hero__actions">
+        <a class="btn" href="mailto:danangh1412@gmail.com">Email Me</a>
+        <a
+          class="btn btn--outline"
+          href="https://linkedin.com/in/danang-haryanto-b87208217"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
@@ -108,14 +239,142 @@ const facts = [
     text-align: right;
   }
 
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Timeline */
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .timeline__item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-black);
+  }
+
+  .timeline__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .timeline__period {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+
+  .timeline__body h3 {
+    text-transform: none;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  .timeline__org {
+    color: var(--color-red);
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline__body ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: #333;
+  }
+
+  /* Leadership */
+
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--color-black);
+    border: 1px solid var(--color-black);
+  }
+
+  .leadership-card {
+    background: var(--color-white);
+    padding: 2rem;
+  }
+
+  .leadership-card__period {
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    color: var(--color-red);
+  }
+
+  .leadership-card h3 {
+    text-transform: none;
+    font-size: 1.375rem;
+    margin-top: 0.5rem;
+  }
+
+  .leadership-card__org {
+    font-size: 0.875rem;
+    color: #555;
+    margin: 0.35rem 0 0.75rem;
+  }
+
+  /* Skills */
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .skills-grid__category {
+    text-transform: none;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .tag-list li {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: 1px solid var(--color-black);
+    padding: 0.4rem 0.8rem;
+  }
+
   @media (max-width: 860px) {
     .about-hero__grid,
-    .about-body {
+    .about-body,
+    .leadership-grid,
+    .skills-grid {
       grid-template-columns: 1fr;
     }
 
     .about-photo {
       aspect-ratio: 16 / 9;
+    }
+
+    .timeline__item {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
     }
   }
 </style>

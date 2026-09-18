@@ -139,6 +139,17 @@ p {
   color: var(--color-white);
 }
 
+.btn--dark {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+.btn--dark:hover {
+  background: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-black);
+}
+
 /* Navigation */
 
 .site-header {
@@ -204,7 +215,7 @@ p {
   right: 0;
 }
 
-/* Footer / newsletter */
+/* Footer / connect */
 
 .site-footer {
   border-top: 1px solid var(--color-black);
@@ -212,66 +223,21 @@ p {
   color: var(--color-white);
 }
 
-.newsletter {
+.connect {
   padding-block: var(--space-section);
 }
 
-.newsletter__grid {
+.connect__grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 3rem;
   align-items: end;
 }
 
-.newsletter-form {
+.connect__actions {
   display: flex;
-  gap: 0;
-  border: 2px solid var(--color-white);
-}
-
-.newsletter-form input[type='email'] {
-  flex: 1;
-  min-width: 0;
-  background: transparent;
-  border: none;
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  padding: 1rem 1.1rem;
-}
-
-.newsletter-form input[type='email']::placeholder {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.newsletter-form input[type='email']:focus {
-  outline: none;
-}
-
-.newsletter-form button {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-size: 1rem;
-  border: none;
-  border-left: 2px solid var(--color-white);
-  background: var(--color-red);
-  color: var(--color-white);
-  padding: 0 1.75rem;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-
-.newsletter-form button:hover {
-  background: var(--color-white);
-  color: var(--color-black);
-}
-
-.newsletter__fineprint {
-  margin-top: 0.9rem;
-  font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.55);
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer-bottom {
@@ -299,23 +265,7 @@ p {
     gap: 1.25rem;
   }
 
-  .newsletter__grid {
+  .connect__grid {
     grid-template-columns: 1fr;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-    border: none;
-    gap: 0.75rem;
-  }
-
-  .newsletter-form input[type='email'] {
-    border: 2px solid var(--color-white);
-    padding: 0.9rem 1rem;
-  }
-
-  .newsletter-form button {
-    border: 2px solid var(--color-red);
-    padding: 0.9rem 1rem;
   }
 }

@@ -1,24 +1,19 @@
 ---
-import Newsletter from './Newsletter.astro';
+import Connect from './Connect.astro';
 
-interface Props {
-  showNewsletter?: boolean;
-}
-
-const { showNewsletter = true } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  {showNewsletter && <Newsletter />}
+  <Connect />
   <div class="container footer-bottom">
     <span>&copy; {year} Danang Haryanto. All rights reserved.</span>
     <nav aria-label="Social">
-      <a href="#">Twitter / X</a>
+      <a href="https://linkedin.com/in/danang-haryanto-b87208217" target="_blank" rel="noopener noreferrer">
+        LinkedIn
+      </a>
       &nbsp;&middot;&nbsp;
-      <a href="#">LinkedIn</a>
-      &nbsp;&middot;&nbsp;
-      <a href="#">GitHub</a>
+      <a href="mailto:danangh1412@gmail.com">Email</a>
     </nav>
   </div>
 </footer>

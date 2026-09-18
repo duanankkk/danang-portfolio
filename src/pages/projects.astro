@@ -3,32 +3,32 @@ import Layout from '../layouts/Layout.astro';
 
 const projects = [
   {
-    name: 'Project One',
-    year: '2026',
-    tags: ['Placeholder', 'Tag'],
-    blurb:
-      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
-  },
-  {
-    name: 'Project Two',
+    name: 'Centrifugal Pump Performance Evaluation',
     year: '2025',
-    tags: ['Placeholder', 'Tag'],
+    tags: ['Process Engineering', 'Refinery'],
     blurb:
-      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
+      'During a Process Engineer internship at PT Kilang Pertamina Internasional (RU IV Cilacap), evaluated centrifugal pump 31P1 performance for avtur loading operations — benchmarking actual conditions against design specs and analyzing suction pressure, efficiency, and NPSHA to flag cavitation risk.',
   },
   {
-    name: 'Project Three',
-    year: '2025',
-    tags: ['Placeholder', 'Tag'],
+    name: 'Surfactant-Based EOR Research',
+    year: '2024–2025',
+    tags: ['Research', 'Enhanced Oil Recovery'],
     blurb:
-      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
+      'Researched eco-friendly surfactant alternatives for Enhanced Oil Recovery at Universitas Gadjah Mada. Tested over 100 samples across varying conditions and concentrations, assessing Methyl Ester Sulphonate via filtration testing and presenting findings at a departmental seminar.',
   },
   {
-    name: 'Project Four',
-    year: '2024',
-    tags: ['Placeholder', 'Tag'],
+    name: 'Catalyst Competition 2022',
+    year: '2022',
+    tags: ['Event Management', 'Leadership'],
     blurb:
-      'Placeholder description of this project — what it is, what problem it solves, and the role you played.',
+      'Managed Catalyst, a flagship event under POISE UGM, as Event Manager — leading a team of roughly 8 staff members from planning through execution to a successfully declared winner.',
+  },
+  {
+    name: 'Teknik Fair Workshop',
+    year: '2022',
+    tags: ['Leadership', 'Public Speaking'],
+    blurb:
+      'Led a workshop project introducing prospective students to studying Chemical Engineering, managing a 6-person team and representing the department as its delegate throughout the event.',
   },
 ];
 ---
@@ -39,8 +39,8 @@ const projects = [
       <span class="eyebrow">Selected work</span>
       <h1>Projects<span class="text-red">.</span></h1>
       <p class="lede" style="margin-top: 1.75rem;">
-        Placeholder intro. A short list of things built, shipped, or written — replace with real
-        project write-ups.
+        Process engineering, applied research, and leadership initiatives from my time in
+        Chemical Engineering at Universitas Gadjah Mada.
       </p>
     </div>
   </section>
@@ -61,8 +61,13 @@ const projects = [
             <div class="project-row__body">
               <h2>{project.name}</h2>
               <p>{project.blurb}</p>
-              <a class="project-row__link" href="#">
-                View project &rarr;
+              <a
+                class="project-row__link"
+                href="https://linkedin.com/in/danang-haryanto-b87208217"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                More on LinkedIn &rarr;
               </a>
             </div>
           </article>

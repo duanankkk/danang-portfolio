@@ -1,21 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
-  { name: 'Project One', blurb: 'One-line placeholder description of this project.' },
-  { name: 'Project Two', blurb: 'One-line placeholder description of this project.' },
-  { name: 'Project Three', blurb: 'One-line placeholder description of this project.' },
+const highlights = [
+  {
+    name: 'Refinery Pump Performance Evaluation',
+    blurb: 'Process engineering internship at PT Kilang Pertamina Internasional, RU IV Cilacap.',
+  },
+  {
+    name: 'Surfactant-Based EOR Research',
+    blurb: 'Applied research on eco-friendly surfactants for Enhanced Oil Recovery at UGM.',
+  },
+  {
+    name: 'Catalyst Competition 2022',
+    blurb: 'Led an 8-person team as Event Manager for a flagship POISE UGM competition.',
+  },
 ];
 ---
 
 <Layout title="Home" current="home">
   <section class="section hero">
     <div class="container">
-      <span class="eyebrow">Placeholder tagline goes here</span>
+      <span class="eyebrow">Chemical Engineer &middot; Process Researcher</span>
       <h1>Danang<br />Haryanto<span class="text-red">.</span></h1>
       <p class="lede" style="margin-top: 1.75rem;">
-        Placeholder intro copy. A short, bold sentence about who you are and what you do goes
-        here — replace with your real positioning.
+        Fresh Chemical Engineering graduate from Universitas Gadjah Mada with hands-on process
+        engineering experience at one of Indonesia's largest oil refineries, applied research in
+        Enhanced Oil Recovery, and a track record leading teams of up to 8 people.
       </p>
       <div class="hero__actions">
         <a class="btn" href="/about">About Me</a>
@@ -27,15 +37,15 @@ const projects = [
   <section class="section section--border-top">
     <div class="container">
       <span class="eyebrow">Selected work</span>
-      <h2 style="margin-bottom: 3rem;">Recent Projects</h2>
+      <h2 style="margin-bottom: 3rem;">Recent Highlights</h2>
       <ul class="project-grid">
         {
-          projects.map((project) => (
+          highlights.map((item) => (
             <li class="project-card">
-              <h3>{project.name}</h3>
-              <p>{project.blurb}</p>
+              <h3>{item.name}</h3>
+              <p>{item.blurb}</p>
               <a class="project-card__link" href="/projects">
-                View project &rarr;
+                View details &rarr;
               </a>
             </li>
           ))

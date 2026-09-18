@@ -7,14 +7,12 @@ interface Props {
   title: string;
   description?: string;
   current?: 'home' | 'about' | 'projects';
-  showFooterNewsletter?: boolean;
 }
 
 const {
   title,
-  description = 'Danang Haryanto — personal site and weekly newsletter.',
+  description = 'Danang Haryanto — Chemical Engineer & Process Researcher based in Jakarta, Indonesia.',
   current = '',
-  showFooterNewsletter = true,
 } = Astro.props;
 ---
 
@@ -38,6 +36,6 @@ const {
     <main>
       <slot />
     </main>
-    <Footer showNewsletter={showFooterNewsletter} />
+    <Footer />
   </body>
 </html>
